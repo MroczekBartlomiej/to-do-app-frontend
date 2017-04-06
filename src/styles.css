@@ -1,0 +1,108 @@
+
+body {
+  color: #262524;
+  background-color: #F9F9F9;
+
+}
+
+#container {
+  background-color: #F9F9F9;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#conntent {
+  display: flex;
+  flex-direction: row; /* make main axis horizontal (default setting) */
+  justify-content: center; /* center items horizontally, in this case */
+}
+
+.new-task-panel-bar {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #F9F9F9;
+  border-top: 1px solid #262524;
+}
+
+.new-task-panel-card {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #F9F9F9;
+}
+
+.new-task-desc {
+  width: 220px;
+  height: 60px;
+}
+
+.glyphicon {
+  color: #262524;
+}
+
+.glyphicon:hover {
+  color: #FAAF3B;
+}
+
+.border-for-list {
+  padding: 10px;
+}
+
+.open-new-task-panel {
+  color: #262524;
+}
+
+.a:hover {
+  text-decoration: none;
+}
+
+.open-new-task-panel:hover {
+  color: #262524;
+}
+
+.panel {
+  width: 250px;
+  border-radius: 0px;
+  border-color: #262524;
+
+}
+
+.panel-primary > .panel-heading {
+  background-color: #262524;
+  border-color: #262524;
+  color: #FAAF3B;
+  border: 0px hidden #262524;
+  border-radius: 0px;
+
+}
+
+.panel-heading {
+  font-weight: 700;
+  font-size: 16;
+}
+
+#lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.field {
+  line-height: 1;
+  padding: 6px;
+}
+
+#new_task {
+  float: left;
+}
+
+#description_input {
+  width: 250;
+  height: 150;
+
+}
+
+label {
+  display: block;
+}

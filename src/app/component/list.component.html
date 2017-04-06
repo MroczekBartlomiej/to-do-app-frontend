@@ -1,0 +1,13 @@
+<div class="one-task" *ngFor="let _task of task">
+  <span (click)="removeTaskFromList(_task)" class="glyphicon glyphicon-remove glyphicon-remove-task "></span>{{_task.description}}
+</div>
+<div>
+  <div class="new-task-panel-bar">
+    <a class="open-new-task-panel" *ngIf="!newTaskCardVisible" (click)="showNewTaskCard()">Add task...</a>
+  </div>
+  <div class="new-task-panel-card" *ngIf="newTaskCardVisible">
+    <textarea class="new-task-desc" [(ngModel)]="newTaskDescription"></textarea>
+    <a href="#"><span class="glyphicon glyphicon-ok" (click)="addTaskToList()"></span></a>
+    <a href="#"><span class="glyphicon glyphicon-remove" (click)="hideNewTaskCard()"></span></a>
+  </div>
+</div>

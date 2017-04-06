@@ -1,0 +1,14 @@
+
+<div id="conntent">
+  <div class="col-1-4" *ngFor="let list of lists">
+    <div class="border-for-list">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{list.name}}
+        </div>
+        <div class="panel-body">
+          <tasks-list [listId]="list.id"></tasks-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

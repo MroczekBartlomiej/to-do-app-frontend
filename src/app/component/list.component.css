@@ -1,0 +1,78 @@
+#conntent {
+  display: flex;
+  flex-direction: row; /* make main axis horizontal (default setting) */
+  justify-content: center; /* center items horizontally, in this case */
+  align-items: center;
+}
+
+.border-for-list {
+  padding: 10px;
+}
+
+.panel {
+  width: 250px;
+  border-radius: 0px;
+  border-color: #262524;
+
+}
+
+.panel-primary > .panel-heading {
+  background-color: #262524;
+  border-color: #262524;
+  color: #FAAF3B;
+  border: 0px hidden #262524;
+  border-radius: 0px;
+
+}
+
+.panel-heading {
+  font-weight: 700;
+  font-size: 16;
+}
+
+.panel-body {
+
+  background-color: #F9F9F9;
+}
+
+#lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.field {
+  line-height: 1;
+  padding: 6px;
+}
+
+#new_task {
+  float: left;
+}
+
+#description_input {
+  width: 250;
+  height: 150;
+
+}
+
+label {
+  display: block;
+}
+
+.glyphicon-remove-task {
+  display: none;
+}
+
+.one-task {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.one-task:hover .glyphicon-remove {
+  display: inline;
+}
+
+.col-1-4 {
+  width: 25%;
+}
