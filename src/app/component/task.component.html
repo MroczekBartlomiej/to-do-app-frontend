@@ -1,4 +1,4 @@
-<div class="one-task" *ngFor="let _task of task">
+<div class="one-task" *ngFor="let _task of tasks">
   <span (click)="removeTaskFromList(_task.id)" class="glyphicon glyphicon-remove glyphicon-remove-task "></span>{{_task.description}}
 </div>
 <div>

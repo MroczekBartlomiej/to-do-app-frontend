@@ -1,4 +1,4 @@
-#conntent {
+#content {
   display: flex;
   flex-direction: row; /* make main axis horizontal (default setting) */
   justify-content: center; /* center items horizontally, in this case */

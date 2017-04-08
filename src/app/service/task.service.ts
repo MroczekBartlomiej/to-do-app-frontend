@@ -1,8 +1,10 @@
 import {Injectable} from "@angular/core";
 import {Http, Response, RequestMethod} from "@angular/http";
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/mergeMap'
 import {Task} from "../model/task";
 import { Headers, RequestOptions } from '@angular/http';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class TaskService {
@@ -13,30 +15,33 @@ export class TaskService {
   constructor(private http: Http) {
   }
 
-  addTask(task: Task) {
+  create(task: Task): Observable<Task>{
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers,method: RequestMethod.Post });
 
-    console.log("Service add task")
+    console.log("Service add tasks")
     return this.http.post(this.localhost, task, options)
-      .toPromise();
+      .map(this.extractData)
+      .catch(this.handleError)
   }
 
-  deleteTask(taskId: string){
+  deleteTask(taskId: string): Observable<any>{
     const _url = `${this.localhost}/${taskId}`
     return this.http.delete(_url)
-      .toPromise();
+      .catch(this.handleError);
   }
 
-  getTaskByListId(listId: string){
+  getTaskByListId(listId: string): Observable<Task[]>{
     const _url = `${this.localhost}/${listId}`;
     return this.http.get(_url)
-      .map(res => res.json());
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
+    console.log(body);
+    return body || { };
   }
 
   private handleError(error: any): Promise<any> {
