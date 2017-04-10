@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   getLists(): void {
     this.listService.getAll()
       .subscribe(listOfTask => this.lists = listOfTask,
-        error => this.errorMessage = <any>error)
+        error => this.errorMessage = <any>error);
   }
 
   ngOnInit(): void {
