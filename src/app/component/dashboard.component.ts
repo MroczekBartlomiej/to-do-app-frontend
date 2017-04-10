@@ -1,6 +1,9 @@
 import {Component, OnInit} from "@angular/core";
-import {ListOfTask} from "../model/list";
+import {ListOfTask} from "../model/listOfTask";
 import {DashboardService} from "../service/dashboard.service";
+import * as webdriver from "selenium-webdriver";
+import error = webdriver.error;
+
 @Component({
   selector: 'dashboard',
   templateUrl: 'app/component/dashboard.component.html',
@@ -9,17 +12,16 @@ import {DashboardService} from "../service/dashboard.service";
 export class DashboardComponent implements OnInit {
 
   lists: ListOfTask[];
+  errorMessage: string;
 
   constructor(private listService: DashboardService) {
   };
 
   getLists(): void {
-    this.listService.getAll().subscribe(list => {
-      this.lists = list;
-      console.log(this.lists)
-    });
+    this.listService.getAll()
+      .subscribe(listOfTask => this.lists = listOfTask,
+        error => this.errorMessage = <any>error)
   }
-
 
   ngOnInit(): void {
     this.getLists();

@@ -6,11 +6,9 @@ import {MenuComponent} from "./menu.component";
 import {DashboardComponent} from "./dashboard.component";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
-import {InMemoryWebApiModule} from "angular-in-memory-web-api";
-import {InMemoryDataService} from "../service/in-memory-data.service";
 import {DashboardService} from "../service/dashboard.service";
 import {HttpModule} from "@angular/http";
-import {ListComponent} from "./list.component";
+import {ListComponent} from "./task.component";
 import {TaskService} from "../service/task.service";
 
 @NgModule({
@@ -19,7 +17,6 @@ import {TaskService} from "../service/task.service";
     CommonModule,
     FormsModule,
     HttpModule,
-    //InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   declarations: [
     AppComponent,

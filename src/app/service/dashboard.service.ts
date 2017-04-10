@@ -1,9 +1,10 @@
 import {Injectable} from "@angular/core";
-import {Headers, Http, Response,RequestOptions} from "@angular/http";
+import {Http, Response} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
-import {ListOfTask} from "../model/list";
-import {Observable} from "rxjs";
+import {ListOfTask} from "../model/listOfTask";
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
+import {Observable} from "rxjs";
 @Injectable()
 export class DashboardService {
 
@@ -12,23 +13,16 @@ export class DashboardService {
   constructor(private http: Http) {
   }
 
-  getAll(): Observable<ListOfTask[]> {
+
+  getAll(): Observable<ListOfTask[]>{
     return this.http.get(this.localhost)
-      .map(res => res.json());
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
-  getListsTest() {
-    return this.http.get(this.localhost)
-      .subscribe(data => console.log(data))
-  }
-
-  private jwt() {
-    // create authorization header with jwt token
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser && currentUser.token) {
-      let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
-      return new RequestOptions({ headers: headers });
-    }
+  private extractData(res: Response) {
+    let body = res.json();
+    return body || { };
   }
 
 
