@@ -1,18 +1,15 @@
-import {Component, OnInit, Input} from "@angular/core";
-import "rxjs/add/operator/switchMap";
-import {Task} from "../model/task";
-import {TaskService} from "../service/task.service";
-import * as webdriver from "selenium-webdriver";
-import error = webdriver.error;
+import {Component, OnInit, Input} from '@angular/core';
+import 'rxjs/add/operator/switchMap';
+import {Task} from '../model/task';
+import {TaskService} from '../service/task.service';
 
 @Component({
-  selector: "tasks-list",
+  selector: 'tasks-list',
   templateUrl: 'app/component/task.component.html',
   styleUrls: ['app/component/task.component.css']
 })
 
 export class ListComponent implements OnInit {
-
 
   @Input() listId: string;
   tasks: Task[];
@@ -24,7 +21,7 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTasksForList(this.listId)
+    this.getTasksForList(this.listId);
   }
 
   addTaskToList(taskDescribe: string) {
@@ -35,8 +32,8 @@ export class ListComponent implements OnInit {
     };
     this.taskService.create(newTask)
       .subscribe(task => this.tasks.push(task),
-        error => this.errorMessage =<any>error);
-    this.hideNewTaskCard;
+        error => this.errorMessage = <any>error);
+    this.hideNewTaskCard();
 
   }
 
@@ -47,8 +44,8 @@ export class ListComponent implements OnInit {
   }
 
   removeTaskFromList(task: Task) {
-    this.taskService.deleteTask(task.id)
-    this.tasks.splice(this.tasks.indexOf(task),1)
+    this.taskService.deleteTask(task.id);
+    this.tasks.splice(this.tasks.indexOf(task), 1);
   }
 
   showNewTaskCard(): void {
