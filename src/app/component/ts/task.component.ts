@@ -1,12 +1,12 @@
 import {Component, OnInit, Input} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import {Task} from '../model/task';
-import {TaskService} from '../service/task.service';
+import {Task} from '../../model/task';
+import {TaskService} from '../../service/task.service';
 
 @Component({
   selector: 'tasks-list',
-  templateUrl: 'app/component/task.component.html',
-  styleUrls: ['app/component/task.component.css']
+  templateUrl: '../../html/task.component.html',
+  styleUrls: ['../../css/task.component.css']
 })
 
 export class ListComponent implements OnInit {
