@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers, RequestOptions, RequestMethod} from '@angular/http';
 import {ListOfTask} from '../model/listOfTask';
 import {Observable} from "rxjs";
 import 'rxjs/add/operator/map'
@@ -12,6 +12,15 @@ export class DashboardService {
   private listUrl = 'http://localhost:8080/lists';
 
   constructor(private http: Http) {
+  }
+
+  create(newList: ListOfTask): Observable <ListOfTask> {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const options = new RequestOptions({headers: headers, method: RequestMethod.Post});
+
+    return this.http.post(this.listUrl, newList, options)
+      .map(this.toJSON)
+      .catch(this.handleError);
   }
 
   getAll(): Observable<ListOfTask[]> {

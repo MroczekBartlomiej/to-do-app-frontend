@@ -1,8 +1,16 @@
 <body>
 <div id="menu">
-  <div class="option" (click)="addNewList()">New list</div>
+  <div class="option" data-toggle="modal" data-target=".bs-example-modal-sm">New list</div>
   <div class="option">Done task</div>
   <div class="option">About</div>
   <div style="clear:both;"></div>
+  <div class="option" data-toggle="modal" data-target=".bs-example-modal-sm">New list</div>
+  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+
+      </div>
+    </div>
+  </div>
 </div>
 </body>

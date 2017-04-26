@@ -27,3 +27,14 @@
   padding: 6px;
   color: #F6E7D2;
 }
+
+.modal-dialog {
+  left: 50%;
+  top: 100%;
+  position: static;
+}
+
+.modal-content {
+  padding: 10px;
+
+}

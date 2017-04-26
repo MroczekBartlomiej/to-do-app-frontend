@@ -17,14 +17,13 @@ export class TaskService {
     const headers = new Headers({'Content-Type': 'application/json'});
     const options = new RequestOptions({headers: headers, method: RequestMethod.Post});
 
-    console.log("Service add tasks")
     return this.http.post(this.taskUrl, task, options)
       .map(this.toJSON)
       .catch(this.handleError)
   }
 
   deleteTask(taskId: string): Observable<any> {
-    const _url = `${this.taskUrl}/${taskId}`
+    const _url = `${this.taskUrl}/${taskId}`;
     return this.http.delete(_url)
       .catch(this.handleError);
   }
