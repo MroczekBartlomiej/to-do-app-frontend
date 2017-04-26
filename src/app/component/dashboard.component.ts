@@ -11,12 +11,23 @@ export class DashboardComponent implements OnInit {
 
   lists: ListOfTask[];
   errorMessage: string;
+  newListName: string;
 
-  constructor(private listService: DashboardService) {
+  constructor(private dashboardService: DashboardService) {
   };
 
+  createList(): void {
+    let newList: ListOfTask = {
+      id: null,
+      name: this.newListName
+    };
+    this.dashboardService.create(newList)
+      .subscribe(list => this.lists.push(list));
+    this.newListName = null;
+  }
+
   loadLists(): void {
-    this.listService.getAll()
+    this.dashboardService.getAll()
       .subscribe(listOfTask => this.lists = listOfTask,
         error => this.errorMessage = <any>error);
   }

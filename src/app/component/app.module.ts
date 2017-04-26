@@ -16,7 +16,7 @@ import {TaskService} from '../service/task.service';
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -26,7 +26,7 @@ import {TaskService} from '../service/task.service';
   ],
   providers: [
     DashboardService,
-    TaskService,
+    TaskService
   ],
   bootstrap: [AppComponent]
 })
